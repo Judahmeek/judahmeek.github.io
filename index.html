@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Max Throughput</title>
+</head>
+<body>
+    
+      
+      
+        <marked-element><p>Two Sigma's mission is to uncover value in the world's data, and as part of that it's necessary to download massive amounts of information on a regular basis. Naturally, this data should be transferred as quickly and efficiently as possible.</p>
+<p>A new data <code>resource</code> was recently added to the network, and your job is to establish a connection between it and Two Sigma's <code>server</code>. Due to security reasons, all connections in Two Sigma's <code>network</code> are unidirectional (i.e. only have a  one-way connection), and no data can be stored on any node of the <code>network</code>. This means that every second the amount of data a node receives should be equal to the amount of data it forwards. The only exceptions to this rule are <code>resource</code> and <code>server</code>, since the former only sends data while the latter only receives it.</p>
+<p>Unfortunately, some segments of the <code>network</code> are slower than is ideal due to limitations with legacy telecommunication operators around the world. This complicates finding the optimal route through the <code>network</code> significantly, which is why your help is required.</p>
+<p>Find a route between the <code>resource</code> and the <code>server</code> that maximizes the amount of data downloaded in a second, and return this maximum value.</p>
+<p><strong>Example</strong></p>
+<p>For <code>resource = 4</code>, <code>server = 5</code> and</p>
+<pre><code>network = [[<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+           [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">9</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+           [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>],
+           [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>],
+           [<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+           [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]]
+</code></pre>
+<p>the output should be <code>dataRoute(resource, server, network) = 19</code>.</p>
+<p>Here's what the <code>network</code> looks like:<br>
+<img src="https://codefightsuserpics.s3.amazonaws.com/tasks/dataRoute/img/network.png?_tm=1458937894122" alt=""></p>
+<p>And here's how data should be transfered within it:<br>
+<img src="https://codefightsuserpics.s3.amazonaws.com/tasks/dataRoute/img/flow.png?_tm=1458937894335" alt=""></p>
+<ul>
+<li><p><strong>[input] integer resource</strong></p>
+<p>A 0-based index of the <code>resource</code> node.</p></li>
+<li><p><strong>[input] integer server</strong></p>
+<p>A 0-based index of the <code>server</code> node, <code>server ≠ resource</code>.</p></li>
+<li><p><strong>[input] array.array.integer network</strong></p>
+<p>A square matrix of non-zero elements. <code>network[i][j]</code> corresponds to the maximum amount of data that can be transfered from the <code>i<sup>th</sup></code> to the <code>j<sup>th</sup></code> node in one second, in megabytes.<br>
+It is guaranteed that <code>0 ≤ network[i][j] ≤ 1000</code> for each valid <code>i</code> and <code>j</code><br>
+It is guaranteed that <code>0 ≤ resource, server &lt; network.length ≤ 15</code>.<br>
+It is also guaranteed that for each valid <code>i</code> <code>network[i][i] = 0</code>.</p>
+<p>Note that although all connections go only one way, there can be two routs between two nodes <code>a</code> and <code>b</code>, one transferring data from <code>a</code> to <code>b</code> and another one from <code>b</code> to <code>a</code>.</p></li>
+<li><p><strong>[output] integer</strong></p>
+<p>The maximum amount of data that can be transferred in one second, in megabytes.</p></li>
+</ul>
+</marked-element>
+</body>
